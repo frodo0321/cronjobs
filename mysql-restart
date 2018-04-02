@@ -1,0 +1,2 @@
+#!/bin/bash
+curl -s localhost:8090 | grep "Error establishing a database connection" >/dev/null && service mysql restart && echo "Restarted mysql"
