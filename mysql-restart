@@ -1,2 +1,3 @@
 #!/bin/bash
-curl -s localhost:8090 | grep "Error establishing a database connection" >/dev/null && service mysql restart && echo "Restarted mysql"
+PORT=`cat /etc/apache2/ports.conf | grep "^Listen" | awk '{print $2}'`
+curl -s localhost:$PORT | grep "Error establishing a database connection" >/dev/null && service mysql restart && echo "Restarted mysql"
